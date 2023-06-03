@@ -1,28 +1,7 @@
-import { API, GET_DATA, FromEvent } from '../../helpers/index.js';
-
 import { Search } from '../search/index.js';
-import { Card } from '../card/index.js';
 
 export function Header() {
-  const $HEADER = Render('header')
-  const $FORM = $HEADER.querySelector('form')
-  const $BRAND = $HEADER.querySelector('figure')
-  const SEARCHING = (value) => API('search')(value)
-
-  FromEvent($FORM, 'submit').subscribe({
-    next: (event) => {
-      const { target } = event
-      const formData = new FormData(target)
-      const VALUE = (formData.get('search')?.toString() || '').trim()
-      const DATA = SEARCHING(VALUE)
-
-      $BRAND.textContent = VALUE
-      GET_DATA(DATA, Card)
-      target.reset()
-    }
-  });
-
-  return $HEADER
+  return Render('header')
 }
 
 function Render(tagName) {
