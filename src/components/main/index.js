@@ -1,16 +1,9 @@
-import { API, GET_DATA } from '../../helpers/index.js';
-import { Card } from '../card/index.js';
 import { Loading } from '../loading/index.js';
 
 export function Main() {
-  getPost()
-
   const $MAIN = Render('main')
-  return $MAIN
-}
 
-function getPost() {
-  GET_DATA(API('posts'), Card)
+  return $MAIN
 }
 
 function Render(tagName) {
