@@ -42,18 +42,30 @@ export function API(endpoint) {
   }
 }
 
-export async function GET_DATA(PromiseCB, TMPL) {
+export async function GET_DATA(
+  PromiseCB,
+  $tmpl,
+  $target,
+) {
   const cleaner = response => {
-    document.querySelector('#wp-post').innerHTML = ''
+    if ($target) {
+      $target.innerHTML = ''
+    } else {
+      document.querySelector('#wp-post').innerHTML = ''
+    }
     return response
   }
-
+  
   const setter = ({status, data}) => {
     if (status === 'ok') {
-      const posts = data.map(TMPL)
+      const posts = data.map($tmpl)
       const content = posts.toString().replaceAll('/div>,<div','/div><div')
 
-      document.querySelector('#wp-post').innerHTML = content
+      if ($target) {
+        $target.innerHTML = content
+      } else {
+        document.querySelector('#wp-post').innerHTML = content
+      }
     } else {
       return `<div>error</div>`
     }
