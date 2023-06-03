@@ -1,5 +1,6 @@
-export * as wp_api from './wp_api.js'
 export * from './api.js'
-export * from './proxy.js'
+export * from './internationalization.js'
 export * from './errors.js'
+export * from './proxy.js'
 export * from './reactive.js'
+export * as wp_api from './wp_api.js'
