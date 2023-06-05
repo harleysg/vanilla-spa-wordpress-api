@@ -5,7 +5,7 @@ import { Header } from './components/header/index.js';
 import { Main } from './components/main/index.js';
 import { SearchDialog } from './components/aside/index.js';
 
-const App = function ({root}) {
+function App({root}) {
   render(root)
     .then($root => {
       hooks({root: $root})
