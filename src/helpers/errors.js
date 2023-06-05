@@ -1,4 +1,4 @@
-import { API_FAIL_RESPONSE } from '../constants/index.js'
+import { API_FAIL_RESPONSE, GLOBALS_WP_API } from '../constants/index.js'
 
 export class ParamsError extends Error {
   constructor(msn) {

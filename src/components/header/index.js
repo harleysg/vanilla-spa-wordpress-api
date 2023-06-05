@@ -1,3 +1,4 @@
+import { GLOBALS_WP_API } from '../../constants/index.js';
 import { Search } from '../search/index.js';
 
 export function Header() {

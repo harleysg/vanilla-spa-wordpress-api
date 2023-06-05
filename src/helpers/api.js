@@ -1,6 +1,6 @@
+import { WP_API } from '../constants/index.js'
 import { ParamsError } from './errors.js'
 import API_CREATOR from "./proxy.js"
-import WP_API from "./wp_api.js"
 
 const ACCEPTED_RESOURCES = WP_API.ACCEPTED_RESOURCES
 
