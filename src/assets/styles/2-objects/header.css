@@ -1,0 +1,36 @@
+.o-header {
+  position: sticky;
+  top: 0;
+  background-color: var(--white-0);
+  box-shadow: 0 2px 4px 0 var(--white-2);
+  min-height: 60px;
+  view-transition-name: root-header;
+  z-index: var(--z-index-15);
+}
+
+.o-header__wrapper {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 0.5rem;
+}
+
+.o-header__menu {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr minmax(100px, 200px);
+  align-items: center;
+}
+
+.o-header__nav {
+  display: flex;
+  gap: inherit
+}
+.o-header__form {
+  display: flex;
+}
+
+.o-header__brand {
+  min-height: 35px;
+}

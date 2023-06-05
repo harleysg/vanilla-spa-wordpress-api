@@ -1,0 +1,80 @@
+@import url(./header.css);
+@import url(./content.css);
+
+.o-app {
+  display: grid;
+  row-gap: 50px;
+  padding-bottom: 50px;
+}
+
+.o-wrapper {
+  padding-inline: 1rem;
+  margin-inline: auto;
+  width: 100%;
+  max-width: 64em;
+}
+
+/* MAIN */
+.o-main {
+  view-transition-name: root-main;
+}
+
+/* CARD */
+.o-card {
+  padding: 0.4rem;
+  background-color: var(--white-0);
+  box-shadow: 0 2px 8px -2px var(--white-2);
+  display: grid;
+}
+
+.o-card__body {
+  display: grid;
+}
+.o-card__title {
+  margin: 0;
+}
+.o-card__footer {
+  align-self: end;
+}
+
+/* ASIDE */
+
+.o-aside {
+  z-index: var(--z-index-20);
+  width: fit-content;
+  height: fit-content;
+  background-color: var(--white-0);
+  box-shadow: 0 10px 20px -5px hsl(var(--black_3_hsl) / 50%);
+  position: fixed;
+  view-transition-name: root-aside;
+}
+
+.o-aside::backdrop {
+  position: fixed;
+  inset: 0px;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+::view-transition-old(root-header) {
+  /* animation: 90ms cubic-bezier(0.4, 0, 1, 1) forwards fade-out */
+}
+
+::view-transition-new(root-header) {
+  /* animation: 210ms cubic-bezier(0, 0, 0.2, 1) 90ms both fade-in */
+}
+
+::view-transition-old(root) {
+  animation: 90ms cubic-bezier(0.4, 0, 1, 1) both fade-out;
+}
+
+::view-transition-new(root) {
+  animation: 210ms cubic-bezier(0, 0, 0.2, 1) 90ms both fade-in;
+}
+
+::view-transition-old(root-aside) {
+  animation: 120ms cubic-bezier(0.4, 0, 1, 1) both fade-out
+}
+
+::view-transition-new(root-aside) {
+  animation: 200ms cubic-bezier(0, 0, 0.2, 1) both fade-in
+}

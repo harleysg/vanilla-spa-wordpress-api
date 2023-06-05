@@ -1,0 +1,11 @@
+/* CONTENT */
+.o-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-auto-rows: min(100px);
+  gap: 1rem;
+}
+
+.o-content:has(.o-card) + .o-loading {
+  display: none;
+}

@@ -1,0 +1,13 @@
+.c-input {
+  padding-block: var(--c-input-padding-block, 0.25rem);
+  padding-inline: var(--c-input-padding-inline, 0.25rem);
+  border-color: var(--c-input-border-color, var(--white-2));
+  border-style: solid;
+  border-width: var(--c-input-border-width, 1px);
+  min-height: var(--c-input-min-height, 4ch);
+  min-width: var(--c-input-min-width, auto);
+  width: var(--c-input-width, auto);
+  max-width: var(--c-input-max-width, 100%);
+}
+
+/* TYPE */
