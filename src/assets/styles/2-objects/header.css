@@ -33,4 +33,6 @@
 
 .o-header__brand {
   min-height: 35px;
+  display: flex;
+  align-items: center;
 }

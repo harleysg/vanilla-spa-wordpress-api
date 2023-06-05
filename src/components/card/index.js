@@ -15,12 +15,14 @@ export function Card(props) {
   }
 
   return `<div class="o-card">
-    <div>
-      ${title.rendered || title}
-    </div>
-    <div>
-      ${_date}
-      ${_link}
+    <div class="o-card__body">
+      <div class="o-card__header">
+        <h4 class="o-card__title">${title.rendered || title}</h4>
+      </div>
+      <div class="o-card__footer">
+        ${_date}
+        ${_link}
+      </div>
     </div>
   </div>`
 }

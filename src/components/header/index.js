@@ -9,7 +9,9 @@ function Render(tagName) {
   const $HEADER = document.createElement(tagName)
   const $HEADER_TMPL = `
     <div class="o-wrapper o-header__wrapper">
-      <figure class="o-header__brand">Wordpress API</figure>
+      <figure class="o-header__brand">
+        ${window[GLOBALS_WP_API].NAME} API
+      </figure>
       <div class="o-header__menu">
         <nav class="o-header__nav"></nav>
         ${Search()}
