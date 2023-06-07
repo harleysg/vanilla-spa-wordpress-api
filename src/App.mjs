@@ -1,6 +1,7 @@
 import { SearchDialogEventHook } from './helpers/searchDialogEvents.js';
 import { SearchHook } from './hooks/search.js';
 import { GetPostHook } from './hooks/getPost.js';
+import { GlobalEventsHook } from './hooks/globalEvents.js';
 import { Header } from './components/header/index.js';
 import { Main } from './components/main/index.js';
 import { SearchDialog } from './components/aside/index.js';
@@ -10,7 +11,10 @@ function App({root}) {
     .then($root => {
       hooks({root: $root})
     })
-}
+    .finally(() => {
+      GlobalEventsHook()
+    })
+  }
 
 function render(root) {
   root.appendChild(Header())
