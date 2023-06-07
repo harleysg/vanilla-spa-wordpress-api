@@ -1,4 +1,4 @@
-import { JS_CLASSNAMES } from '../constants';
+import { JS_CLASSNAMES } from '../constants/index.js';
 
 export async function SearchDialogEventHook({root}) {
   const $ASIDE = root.querySelector('#root-aside')
