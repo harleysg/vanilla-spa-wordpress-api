@@ -6,7 +6,9 @@ function Render(tagName) {
   const $TAG_NAME = document.createElement(tagName)
   const $HEADER_TMPL = `
     <div class="o-wrapper o-aside__wrapper">
-      <div id="js-results" class="o-content"></div>
+      <header class="o-aside__header">Search results</header>
+      <div id="js-results" class="o-aside__content"></div>
+      <footer class="o-aside__footer"></footer>
     </div>`
 
   $TAG_NAME.classList.add('o-aside')
