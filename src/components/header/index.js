@@ -1,4 +1,5 @@
 import { GLOBALS_WP_API } from '../../constants/index.js';
+import { Menu } from '../menu/menu.js';
 import { Search } from '../search/index.js';
 
 export function Header() {
@@ -13,7 +14,7 @@ function Render(tagName) {
         ${window[GLOBALS_WP_API].NAME} API
       </figure>
       <div class="o-header__menu">
-        <nav class="o-header__nav"></nav>
+        ${Menu().outerHTML}
         ${Search()}
       </div>
     </div>`

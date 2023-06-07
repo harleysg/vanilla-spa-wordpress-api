@@ -25,7 +25,8 @@
 
 .o-header__nav {
   display: flex;
-  gap: inherit
+  gap: inherit;
+  justify-self: end;
 }
 .o-header__form {
   display: flex;
