@@ -2,3 +2,7 @@
 /* Animations */ @import url(./1-animations.css);
 /* Objects    */ @import url(./2-objects/index.css);
 /* Components */ @import url(./3-components/index.css);
+/* Specifications */ 
+.is-overflow-hidden {
+  overflow: hidden !important;
+}

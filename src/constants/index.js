@@ -49,3 +49,7 @@ export const WP_API = {
 }
 
 export const GET_WP_API = (name = NAME) => name
+
+export const JS_CLASSNAMES = {
+  overflowHidden: 'is-overflow-hidden'
+}
