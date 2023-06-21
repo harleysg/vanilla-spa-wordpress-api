@@ -1,5 +1,16 @@
-import { Router } from './router.js'
+import { Router, LinkEvent } from './router.js'
 
 export function GlobalEventsHook() {
-  window.addEventListener('hashchange', Router)
+  handleHashChange()
+  handleLinkEvent()
+}
+
+function handleLinkEvent() {
+  document.addEventListener('click', LinkEvent)
+}
+
+function handleHashChange() {
+  const preventDefault = () => {}
+  window.addEventListener('hashchange', () => Router({preventDefault}))
+  Router({ preventDefault })
 }
