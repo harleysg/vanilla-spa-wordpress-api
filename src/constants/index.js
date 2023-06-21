@@ -16,6 +16,23 @@ export const API_OK_RESPONSE = {
   status: 'ok'
 }
 
+export const ROUTES = {
+  contact: {
+    anchor: '/contact',
+    name:   'Contact',
+    regex:  /contact/,
+    link:   '#/contact',
+    order:  2
+  },
+  home: {
+    anchor: '/',
+    name:   'Home',
+    regex:  /^\s*$|\/|home/,
+    link:   '#/',
+    order:  1
+  },
+}
+
 const NAME = 'css-tricks'
 const DOMAIN = `https://${NAME}.com`
 const SITE = `${DOMAIN}/wp-json`
