@@ -1,13 +1,14 @@
 import { getRelativeTime } from '../helpers/internationalization.js'
 
 export function retrievePostData(props) {
-  const { title, link, date, url, excerpt, jetpack_featured_media_url } = props
+  const { title, link, date, url, excerpt, jetpack_featured_media_url, slug } = props
   const data = {
     date: '',
     link: '',
     title: '',
     description: '',
-    image: ''
+    image: '',
+    slug: ''
   }
 
   if (excerpt && excerpt.rendered) {
@@ -28,6 +29,10 @@ export function retrievePostData(props) {
 
   if (link || url) {
     data.link = link ?? url
+  }
+  
+  if (slug) {
+    data.slug = `#/${slug}`
   }
 
   return data

@@ -1,9 +1,7 @@
 import { Loading } from '../loading/index.js';
 
 export function Main() {
-  const $MAIN = Render('main')
-
-  return $MAIN
+  return Render('main')
 }
 
 function Render(tagName) {

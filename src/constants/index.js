@@ -1,3 +1,12 @@
+const NAME = 'css-tricks'
+const DOMAIN = `https://${NAME}.com`
+const SITE = `${DOMAIN}/wp-json`
+const API_WP = `${SITE}/wp/v2`
+const POSTS_RICH = `${API_WP}/posts?_embed`
+const POSTS = `${API_WP}/posts`
+const SEARCH = `${API_WP}/search?_embed&search=`
+const CATEGORIES = `${API_WP}/categories`
+
 export const API_RESPONSE = {
   status: '',
   message: '',
@@ -32,15 +41,6 @@ export const ROUTES = {
     order:  1
   },
 }
-
-const NAME = 'css-tricks'
-const DOMAIN = `https://${NAME}.com`
-const SITE = `${DOMAIN}/wp-json`
-const API_WP = `${SITE}/wp/v2`
-const POSTS_RICH = `${API_WP}/posts?_embed`
-const POSTS = `${API_WP}/posts`
-const SEARCH = `${API_WP}/search?_embed&search=`
-const CATEGORIES = `${API_WP}/categories`
 
 export const GLOBALS_WP_API = 'GLOBALS_WP_API'
 export const WP_TARGET = (name = NAME) => name
