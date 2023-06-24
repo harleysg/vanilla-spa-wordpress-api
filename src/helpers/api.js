@@ -42,6 +42,30 @@ export function API(endpoint) {
   }
 }
 
+export async function GET_POST_CONTENT(PromiseCB) {
+  const cleaner = response => {
+    document.querySelector('#wp-post').innerHTML = ''
+    document.querySelector('#wp-post').classList.remove('has-o-card')
+    return response
+  }
+  const setter = ({status, data}) => {
+    const posts = data?.content?.rendered
+    const content = posts ? posts : `<div>error</div>`
+
+    if (status === 'ok') {
+      document.querySelector('#wp-post').innerHTML = content
+
+      return data
+    } else {
+      return `<div>error</div>`
+    }
+  }
+
+  return await PromiseCB
+    .then(cleaner)
+    .then(setter)
+}
+
 export async function GET_DATA(
   PromiseCB,
   $tmpl,
@@ -52,25 +76,28 @@ export async function GET_DATA(
       $target.innerHTML = ''
     } else {
       document.querySelector('#wp-post').innerHTML = ''
+      document.querySelector('#wp-post').classList.add('has-o-card')
     }
     return response
   }
-  
+
   const setter = ({status, data}) => {
     if (status === 'ok') {
-      const posts = data.map($tmpl)
-      const content = posts.toString().replaceAll('/div>,<div','/div><div')
+      const posts = (data || []).map($tmpl)
+      const content = posts ? posts.toString().replaceAll('/div>,<div','/div><div') : `<div>error</div>`
 
       if ($target) {
         $target.innerHTML = content
       } else {
         document.querySelector('#wp-post').innerHTML = content
       }
+
+      return data
     } else {
       return `<div>error</div>`
     }
   }
-  
+
   return await PromiseCB
     .then(cleaner)
     .then(setter)
