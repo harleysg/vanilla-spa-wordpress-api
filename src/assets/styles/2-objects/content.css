@@ -1,11 +1,20 @@
 /* CONTENT */
 .o-content {
+}
+
+.o-content code {
+  display: block;
+  max-width: calc(100vw - (1rem * 2));
+  overflow-x: auto;
+}
+
+.o-content.has-o-card {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   grid-auto-rows: minmax(100px, auto);
   gap: 1rem;
 }
 
-.o-content:has(.o-card) + .o-loading {
+.o-content:not(:empty) + .o-loading {
   display: none;
 }

@@ -79,6 +79,7 @@ body {
 
 img {
   max-width: 100%;
+  height: auto;
   display: inline-block;
 }
 
@@ -89,4 +90,9 @@ figure {
 
 dialog {
   border: none;
+}
+
+code {
+  box-shadow: 0px 0px 2px 0px var(--black-3) inset;
+  padding: 3px;
 }
