@@ -7,6 +7,10 @@ const POSTS = `${API_WP}/posts`
 const SEARCH = `${API_WP}/search?_embed&search=`
 const CATEGORIES = `${API_WP}/categories`
 
+export const STORAGE = {
+  latestPost: 'latestPost'
+}
+
 export const API_RESPONSE = {
   status: '',
   message: '',
