@@ -1,17 +1,16 @@
-import { SearchDialogEventHook } from './helpers/searchDialogEvents.js';
-import { SearchHook } from './hooks/search.js';
-import { GlobalEventsHook } from './hooks/globalEvents.js';
+import { CursorHook } from './hooks/cursorHook.js';
+import { SearchHook } from './hooks/searchHook.js';
+import { Router } from './router/index.js';
 import { Header } from './components/header/index.js';
 import { Main } from './components/main/index.js';
 import { SearchDialog } from './components/aside/index.js';
 
 function App({root}) {
   render(root)
-    .then($root => {
-      hooks({root: $root})
-    })
+    .then(Router)
     .finally(() => {
-      GlobalEventsHook({root})
+      SearchHook({root})
+      CursorHook()
     })
   }
 
@@ -22,11 +21,5 @@ function render(root) {
 
   return Promise.resolve(root)
 }
-
-function hooks({root}) {
-  SearchHook({root})
-  SearchDialogEventHook({root})
-}
-
 
 export default App
