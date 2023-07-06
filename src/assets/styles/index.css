@@ -6,3 +6,16 @@
 .is-overflow-hidden {
   overflow: hidden !important;
 }
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --app-theme-bg: var(--black-0);
+    --app-theme-bg-level-1: var(--black-0);
+    --app-theme-bg-level-1-alpha-015: hsl(var(--white_0_hsl) / 0.15);
+    --app-theme-bg-level-1-alpha-05: hsl(var(--white_0_hsl) / 0.5);
+    --app-theme-bg-level-2: var(--black-1);
+    --app-theme-bg-level-3: var(--black-3);
+    --app-theme-bg-level-4: var(--black-3);
+    --app-theme-color: var(--white-0);
+  }
+}

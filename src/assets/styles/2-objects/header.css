@@ -1,10 +1,10 @@
 .o-header {
   position: sticky;
   top: 0;
-  background-color: var(--white-0);
-  box-shadow: 0 2px 4px 0 var(--white-2);
+  background-color: var(--app-theme-bg-level-1);
+  color: var(--app-theme-color);
+  box-shadow: 0 2px 4px 0 var(--app-theme-bg-level-3);
   min-height: 60px;
-  view-transition-name: root-header;
   z-index: var(--z-index-15);
 }
 

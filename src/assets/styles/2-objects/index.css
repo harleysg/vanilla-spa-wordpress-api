@@ -23,13 +23,16 @@
 /* ASIDE */
 
 .o-aside {
+  --aside-bg: var(--app-theme-bg-level-3);
+
+  position: fixed;
+  padding: 0;
   z-index: var(--z-index-20);
   width: fit-content;
   height: fit-content;
-  background-color: var(--white-0);
-  box-shadow: 0 10px 20px -5px hsl(var(--black_3_hsl) / 50%);
-  position: fixed;
-  padding: 0;
+  color: var(--app-theme-color);
+  background-color: var(--aside-bg);
+  box-shadow: 0 10px 20px -5px var(--app-theme-bg-level-5-alpha-05);
   view-transition-name: root-aside;
 }
 /* ASIDE */
@@ -50,9 +53,12 @@
   position: sticky;
   top: 0;
   padding: 1rem;
-  background-color: var(--white-0);
-  box-shadow: 0 2px 4px 0 var(--white-2);
+  background-color: var(--aside-bg);
+  color: var(--app-theme-color);
+  box-shadow: 0 2px 4px 0 var(--app-theme-bg-level-5-alpha-05);
   z-index: var(--z-index-1);
+  display: flex;
+  justify-content: space-between;
 }
 .o-aside::backdrop {
   position: fixed;
