@@ -1,3 +1,5 @@
+const ISetLocation = {path: '', data: {}, title: ''}
+
 const BrowserHistory = {
   back: () => window.history.back(),
 
