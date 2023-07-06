@@ -8,7 +8,11 @@ const SEARCH = `${API_WP}/search?_embed&search=`
 const CATEGORIES = `${API_WP}/categories`
 
 export const STORAGE = {
-  latestPost: 'latestPost'
+  latestPosts: 'wp_home_list_of_post',
+  latestPostRendered: 'wp_post_rendered',
+  latestPostsSearched: 'wp_search_list_of_post',
+  postsRendered: 'wp_list_of_post',
+  errorsReported: 'app-error-reports'
 }
 
 export const API_RESPONSE = {
@@ -21,7 +25,8 @@ export const API_RESPONSE = {
 export const API_FAIL_RESPONSE = {
   ...API_RESPONSE,
   status: 'fail',
-  type: ''
+  type: '',
+  origin: ''
 }
 
 export const API_OK_RESPONSE = {
@@ -30,6 +35,13 @@ export const API_OK_RESPONSE = {
 }
 
 export const ROUTES = {
+  read: {
+    anchor: '/last-read',
+    name: 'Last read',
+    regex:  /last-read/,
+    link:   '#/last-read',
+    order:  3
+  },
   contact: {
     anchor: '/contact',
     name:   'Contact',
