@@ -38,20 +38,27 @@ export function Card(props) {
 }
 
 export function CardSearchResult (props) {
-  const { title, link } = retrievePostData(props)
+  const { description, title, link, id } = retrievePostData(props)
   let _link = ''
+  let _description = ''
   let _title = ''
+  let _slug = ''
 
   title && (_title = `<h4 class="o-card__title">${title}</h4>`)
   link && (_link = `<a href="${link}" target="_blank">Visit post</a>`)
+  description && (_description = `<p>${description}</p>`)
+  id && (_slug = `<button data-action="getPost" data-id="${id}">View post</button>`)
 
   return `<div class="o-card">
     <div class="o-card__wrapper">
       <div class="o-card__header">
         ${_title}
       </div>
+      <div class="o-card__body">
+        ${_description}
+      </div>
       <div class="o-card__footer">
-        ${_link}
+        ${_slug ? _slug : _link}
       </div>
     </div>
   </div>`

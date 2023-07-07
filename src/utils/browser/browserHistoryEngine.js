@@ -8,25 +8,29 @@ const BrowserHistory = {
   go: (n) => window.history.go(n),
 
   setLocation: ({path, data, title} = ISetLocation) => {
-    if (window.location.pathname !== path) {
-      window.history.pushState(
+    const { history, location, document } = window
+    const { pathname, hash } = location
+
+    if (pathname + hash !== path) {
+      history.pushState(
         data,
-        `${window.document.title} - ${title}`,
+        `${document.title} - ${title}`,
         path
       );
     }
   },
 
   updateLocation: ({path, data, title} = ISetLocation) => {
-    if (window.location.pathname !== path) {
-      window.history.replaceState(
+    const { history, location, document } = window
+
+    if (location.pathname !== path) {
+      history.replaceState(
         data,
-        `${window.document.title} - ${title}`,
+        `${document.title} - ${title}`,
         path
       );
     }
   },
-
 
   updateTitle: ({title} = {title: ''}) => {
     window.document.title = title

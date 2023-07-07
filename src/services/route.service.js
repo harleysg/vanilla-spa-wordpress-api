@@ -1,25 +1,16 @@
-import { WP_API } from "../constants/index.js";
-import BrowserHistory from '../hooks/browser/browserHistoryEngine.js';
+import { resetPage } from '../utils/dom/index.js';
 import { GetLatestPostHook, GetPostBy } from '../hooks/getPost.js';
 
 export default function RouteService() {
   return {
-  contact: (route) => {
-    BrowserHistory.updateTitle({title: `${WP_API.NAME} - ${route}`})
-    _cleaner()
-  },
+  contact: (route) => resetPage({route}),
+  read: (route) => resetPage({route}),
   home: (route) => {
-    BrowserHistory.updateTitle({title: `${WP_API.NAME} - ${route}`})
-    _cleaner()
+    resetPage({route})
     GetLatestPostHook()
   },
   post: (route, hash) => {
-    BrowserHistory.updateTitle({title: `${WP_API.NAME} - ${route}`})
-    _cleaner()
+    resetPage({route})
     GetPostBy(hash)
   }
 }}
-
-function _cleaner() {
-  document.querySelector('#wp-post').innerHTML = ''
-}

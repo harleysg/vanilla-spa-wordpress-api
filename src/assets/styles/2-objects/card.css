@@ -1,8 +1,16 @@
 /* CARD */
 .o-card {
-  background-color: var(--white-0);
-  box-shadow: 0 2px 8px -2px var(--white-2);
+  --pointer-color: var(--app-theme-bg-level-1-alpha-015);
+  --card-mask-color: var(--app-theme-bg-level-1-alpha-05);
+  --effect-radial-size: 15vmin;
+  --card-bg: var(--app-theme-bg-level-1);
+
+  box-shadow: 0 2px 8px -2px var(--app-theme-bg-level-4);
   display: grid;
+  background-color: var(--card-bg);
+  color: var(--app-theme-color);
+  position: relative;
+  transition: background-color 0.1s;
 }
 .o-card__wrapper {
   display: grid;
@@ -14,6 +22,7 @@
 }
 .o-card__header {
   position: relative;
+  overflow: hidden;
 }
 .o-card__title {
   margin: 0;
@@ -31,7 +40,51 @@
   align-self: end;
   padding-inline: 0.4rem;
 }
-
+/* Effects */
+.o-card:hover {
+  --active: 1;
+}
+.o-card:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      circle at calc(var(--x) * 1px) calc(var(--y) * 1px),
+      var(--pointer-color),
+      transparent var(--effect-radial-size)
+    );
+  background-attachment: fixed;
+  opacity: var(--active, 0);
+  transition: opacity 0.2s;
+  z-index: var(--z-index-1);
+  pointer-events: none;
+}
+.o-card:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      circle at calc(var(--x) * 1px) calc(var(--y) * 1px),
+      var(--card-mask-color),
+      transparent var(--effect-radial-size)
+    ),
+    transparent;
+  background-attachment: fixed;
+  pointer-events: none;
+  z-index: var(--z-index-1);
+  mask:
+    linear-gradient(var(--app-theme-bg-level-4), var(--app-theme-bg-level-4)) 50% 0 / 100% 4px no-repeat,
+    linear-gradient(var(--app-theme-bg-level-4), var(--app-theme-bg-level-4)) 50% 100% / 100% 4px no-repeat,
+    linear-gradient(var(--app-theme-bg-level-4), var(--app-theme-bg-level-4)) 0 50% / 4px 100% no-repeat,
+    linear-gradient(var(--app-theme-bg-level-4), var(--app-theme-bg-level-4)) 100% 50% / 4px 100% no-repeat;
+  -webkit-mask:
+    linear-gradient(var(--app-theme-bg-level-4), var(--app-theme-bg-level-4)) 50% 0 / 100% 4px no-repeat,
+    linear-gradient(var(--app-theme-bg-level-4), var(--app-theme-bg-level-4)) 50% 100% / 100% 4px no-repeat,
+    linear-gradient(var(--app-theme-bg-level-4), var(--app-theme-bg-level-4)) 0 50% / 4px 100% no-repeat,
+    linear-gradient(var(--app-theme-bg-level-4), var(--app-theme-bg-level-4)) 100% 50% / 4px 100% no-repeat;
+}
 /* Specificity */
 .o-card.has-image .o-card__wrapper {
   padding-block: 0 0.4rem;
@@ -39,6 +92,12 @@
 .o-card.has-image .o-card__title {
   font-size: larger;
   position: absolute;
-  bottom: 10px;
-  filter: drop-shadow(0px 1px 1px var(--white-0)) invert(1);
+  padding-bottom: 10px;
+  bottom: 0;
+  filter: drop-shadow(0px 1px 1px var(--card-bg));
+  background-image: linear-gradient(0deg, var(--card-bg), transparent);
+  padding-bottom: 10px;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
 }

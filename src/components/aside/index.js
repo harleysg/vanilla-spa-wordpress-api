@@ -5,8 +5,11 @@ export function SearchDialog() {
 function Render(tagName) {
   const $TAG_NAME = document.createElement(tagName)
   const $HEADER_TMPL = `
-    <div class="o-wrapper o-aside__wrapper">
-      <header class="o-aside__header">Search results</header>
+    <div class="o-wrapper o-aside__wrapper" aria-label="Dialog result">
+      <header class="o-aside__header">
+        Search results
+        <button data-action="close">x</button>
+      </header>
       <div id="js-results" class="o-aside__content"></div>
       <footer class="o-aside__footer"></footer>
     </div>`
